@@ -15,6 +15,8 @@ class CenterCrop(object):
     """
 
     def __init__(self, size):
+        if not (isinstance(size,tuple)):
+            size = (size,size)
 
         self.size = size
 
@@ -64,10 +66,12 @@ class RandomCrop(object):
         else:
             if len(crop_size) != 2:
                 raise ValueError('If size is a sequence, it must be of len 2.')
+        if len(crop_size) != 2:
+            raise ValueError('If image size is a sequence, it must be of len 2.')
         self.crop_size = crop_size
         ## select same crop for video
-        self.w1 = random.randint(0, img_size - self.crop_size[0])
-        self.h1 = random.randint(0, img_size - self.crop_size[1])
+        self.w1 = random.randint(0, img_size[0] - self.crop_size[0])
+        self.h1 = random.randint(0, img_size[1] - self.crop_size[1])
 
     def __call__(self, frame):
         crop_h, crop_w = self.crop_size
@@ -112,7 +116,7 @@ class RandomResizedCrop(object):
         interpolation: Default: PIL.Image.BILINEAR
     """
 
-    def __init__(self, size, scale=(0.08, 1.0), ratio=(3. / 4., 4. / 3.), interpolation=PIL.Image.BILINEAR):
+    def __init__(self, size, scale=(0.8, 1.0), ratio=(3. / 4., 4. / 3.), interpolation=PIL.Image.BILINEAR):
         if isinstance(size, tuple):
             self.size = size
         else:
@@ -137,6 +141,7 @@ class RandomResizedCrop(object):
             tuple: params (i, j, h, w) to be passed to ``crop`` for a random
                 sized crop.
         """
+
         area = 256 * 256
 
         for attempt in range(10):
