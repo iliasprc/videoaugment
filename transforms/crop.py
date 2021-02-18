@@ -15,13 +15,20 @@ class CenterCrop(object):
     """
 
     def __init__(self, size):
-        if not (isinstance(size,tuple)):
-            size = (size,size)
+        if not (isinstance(size, tuple)):
+            size = (size, size)
 
         self.size = size
 
     def __call__(self, frame):
+        """
 
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         crop_h, crop_w = self.size
         if isinstance(frame, np.ndarray):
             im_h, im_w, im_c = frame.shape
@@ -67,6 +74,15 @@ class RandomCrop(object):
             if len(crop_size) != 2:
                 raise ValueError('If size is a sequence, it must be of len 2.')
         if len(crop_size) != 2:
+            raise ValueError('If image size is a sequence, it must be of len 2.')
+        if isinstance(img_size, int):
+            if img_size < 0:
+                raise ValueError('If size is a single number, it must be positive')
+            img_size = (img_size, img_size)
+        else:
+            if len(img_size) != 2:
+                raise ValueError('If size is a sequence, it must be of len 2.')
+        if len(img_size) != 2:
             raise ValueError('If image size is a sequence, it must be of len 2.')
         self.crop_size = crop_size
         ## select same crop for video

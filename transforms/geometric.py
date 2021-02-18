@@ -30,7 +30,14 @@ class GaussianBlur(object):
         self.sigma = sigma
 
     def __call__(self, frame):
+        """
 
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.gaussian_blur(frame, self.kernel_size, self.sigma)
         elif isinstance(frame, np.ndarray):

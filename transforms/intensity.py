@@ -3,7 +3,36 @@ import random
 import PIL
 import PIL.Image
 import torch
+import numpy as np
 import torchvision.transforms.functional as TF
+
+
+
+class Rescale:
+
+    def __init__(self, scale=1 / 255.0):
+        """
+
+        Args:
+            min_val ():
+            max_val ():
+        """
+        self.scale = scale
+
+    def __call__(self, frame):
+        """
+
+        Args:
+            frame ():
+
+        Returns:
+
+        """
+        if isinstance(frame, PIL.Image.Image):
+            return np.asarray(frame) * self.scale
+        elif isinstance(frame, np.ndarray):
+
+            return frame * self.scale
 
 
 class Brightness:
@@ -13,9 +42,19 @@ class Brightness:
         self.brightness = brightness
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_brightness(frame, brightness_factor=self.brightness)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_brightness(frame, brightness_factor=self.brightness)
         else:
 
             raise TypeError('Expected  PIL.Image or Tensor' +
@@ -29,9 +68,19 @@ class RandomBrightness:
         self.brightness = 1 + random.uniform(-abs(abs_brightness), abs(abs_brightness))
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_brightness(frame, brightness_factor=self.brightness)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_brightness(frame, brightness_factor=self.brightness)
         else:
 
             raise TypeError('Expected  PIL.Image or Tensor' +
@@ -52,9 +101,19 @@ class Hue:
         self.hue = hue
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_hue(frame, hue_factor=self.hue)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_hue(frame, hue_factor=self.hue)
         else:
 
             raise TypeError('Expected  PIL.Image or torch.Tensor' +
@@ -76,7 +135,18 @@ class RandomHue:
         self.hue = random.uniform(0, 1) * hue_range
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
+            return TF.adjust_hue(frame, hue_factor=self.hue)
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
             return TF.adjust_hue(frame, hue_factor=self.hue)
         else:
 
@@ -100,9 +170,19 @@ class Contrast:
         self.contrast = contrast
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_contrast(frame, contrast_factor=self.contrast)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_contrast(frame, contrast_factor=self.contrast)
         else:
 
             raise TypeError('Expected  PIL.Image or Tensor' +
@@ -113,13 +193,28 @@ class RandomContrast:
     """Change randomly brightness of frame."""
 
     def __init__(self, contrast=1):
+        """
+
+        Args:
+            contrast ():
+        """
         # assert 0 <= contrast <= 2, f'contrast should be in the range of [0,2] , given value was {contrast}'
         self.contrast = random.uniform(0, 2)
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_contrast(frame, contrast_factor=self.contrast)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_contrast(frame, contrast_factor=self.contrast)
         else:
 
             raise TypeError('Expected  PIL.Image or Tensor' +
@@ -143,9 +238,19 @@ class Saturation:
         self.saturation = saturation
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_saturation(frame, saturation_factor=self.saturation)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_saturation(frame, saturation_factor=self.saturation)
         else:
 
             raise TypeError('Expected  PIL.Image or Tensor' +
@@ -169,9 +274,19 @@ class RandomSaturation:
         self.saturation = random.uniform(0, 2)
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
             return TF.adjust_saturation(frame, saturation_factor=self.saturation)
-
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
+            return TF.adjust_saturation(frame, saturation_factor=self.saturation)
         else:
 
             raise TypeError('Expected  PIL.Image or Tensor' +
@@ -207,7 +322,7 @@ class RandomColorAugment(object):
         else:
             saturation_factor = 1
 
-        if hue > 0:
+        if 0 <= hue <= 0.5:
             hue_factor = random.uniform(-hue, hue)
         else:
             hue_factor = 0
@@ -218,10 +333,23 @@ class RandomColorAugment(object):
         self.hue = hue_factor
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         color_transforms = [Saturation(saturation=self.saturation), Hue(hue=self.hue),
                             Brightness(brightness=self.brightness), Contrast(contrast=self.contrast)]
         if isinstance(frame, PIL.Image.Image) or isinstance(frame, torch.Tensor):
 
+            for ct in color_transforms:
+                frame = ct(frame)
+            return frame
+        elif isinstance(frame, np.ndarray):
+            frame = PIL.Image.fromarray(frame)
             for ct in color_transforms:
                 frame = ct(frame)
             return frame

@@ -12,6 +12,14 @@ class Rotation:
         self.angle = angle
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image):
             return TF.rotate(frame, self.angle)
         elif isinstance(frame,np.ndarray):
@@ -30,6 +38,14 @@ class RandomRotation:
         self.angle = random.randint(-angle_range, angle_range)
 
     def __call__(self, frame):
+        """
+
+        Args:
+            frame (PIL.Image or np.array or torch.Tensor):
+
+        Returns:  frame (PIL.Image or np.array or torch.Tensor)
+
+        """
         if isinstance(frame, PIL.Image.Image):
             return TF.rotate(frame, self.angle)
         elif isinstance(frame,np.ndarray):
