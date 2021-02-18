@@ -1,9 +1,9 @@
 import random
-
+import numpy as np
 import PIL.Image
 import PIL.Image
 import torchvision.transforms.functional as TF
-
+import skimage.transform
 
 class Rotation:
     """Rotate by one of the given angles."""
@@ -14,6 +14,8 @@ class Rotation:
     def __call__(self, frame):
         if isinstance(frame, PIL.Image.Image):
             return TF.rotate(frame, self.angle)
+        elif isinstance(frame,np.ndarray):
+            skimage.transform.rotate(frame, self.angle)
         else:
 
             raise TypeError('Expected numpy.ndarray or PIL.Image' +
@@ -30,6 +32,8 @@ class RandomRotation:
     def __call__(self, frame):
         if isinstance(frame, PIL.Image.Image):
             return TF.rotate(frame, self.angle)
+        elif isinstance(frame,np.ndarray):
+            skimage.transform.rotate(frame, self.angle)
         else:
 
             raise TypeError('Expected numpy.ndarray or PIL.Image' +
