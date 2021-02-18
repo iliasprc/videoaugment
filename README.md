@@ -188,15 +188,17 @@ Project Link: [https://github.com/iliasprc/videoaugment](https://github.com/ilia
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/iliasprc/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/iliasprc/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/iliasprc/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/iliasprc/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/iliasprc/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/iliasprc/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/iliasprc/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/iliasprc/repo/issues
-[license-shield]: https://img.shields.io/github/license/iliasprc/repo.svg?style=for-the-badge
-[license-url]: https://github.com/iliasprc/repo/blob/master/LICENSE.txt
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/iliasprc/videoaugment.svg?style=for-the-badge
+[contributors-url]: https://github.com/iliasprc/videoaugment/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/iliasprc/videoaugment.svg?style=for-the-badge
+[forks-url]: https://github.com/iliasprc/videoaugment/network/members
+[stars-shield]: https://img.shields.io/github/stars/iliasprc/videoaugment.svg?style=for-the-badge
+[stars-url]: https://github.com/iliasprc/videoaugment/stargazers
+[issues-shield]: https://img.shields.io/github/issues/iliasprc/videoaugment.svg?style=for-the-badge
+[issues-url]: https://github.com/iliasprc/videoaugment/issues
+[license-shield]: https://img.shields.io/github/license/iliasprc/videoaugment.svg?style=for-the-badge
+[license-url]: https://github.com/iliasprc/videoaugment/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/iliasprc
