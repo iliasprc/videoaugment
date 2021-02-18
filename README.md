@@ -201,4 +201,4 @@ Project Link: [https://github.com/iliasprc/videoaugment](https://github.com/ilia
 [license-shield]: https://img.shields.io/github/license/iliasprc/videoaugment.svg?style=for-the-badge
 [license-url]: https://github.com/iliasprc/videoaugment/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/iliasprc
+[linkedin-url]: https://www.linkedin.com/in/ilias-papastratis-16819412a/
