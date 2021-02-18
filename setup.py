@@ -1,6 +1,6 @@
 import setuptools
 
-setuptools.setup(name='video-augment',
+setuptools.setup(name='videoaugment',
                  version='1.0',
                  description='Video Augmentation for PyTorch',
                  url='https://github.com/iliasprc/videoaugment',
