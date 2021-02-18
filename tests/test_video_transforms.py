@@ -36,7 +36,7 @@ t = VideoTransform(
     temporal_transforms=[RandomTemporalDownsample(0.2), TemporalElasticTransformation()])
 v = t(video)
 print(len(v))
-plot_video(v, window_name="TemporalElasformation")
+plot_video(v, window_name="Transform1")
 print(f" TEST DONE")
 
 video = np.array(video)
@@ -47,9 +47,9 @@ t = VideoTransform(
     temporal_transforms=[RandomTemporalDownsample(0.7), TemporalElasticTransformation()])
 v = t(video)
 
-VideoToTensor()(v)
+
 print(len(v))
-plot_video(v, window_name="TemporalElasticTransformation")
+plot_video(v, window_name="Transform2")
 
 
 t = VideoTransform(
@@ -59,3 +59,4 @@ t = VideoTransform(
                         Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))],
     temporal_transforms=[RandomTemporalDownsample(0.7), TemporalElasticTransformation(),VideoToTensor()])
 v = t(video)
+print(f"Video tensor shape {v.shape} type {v.dtype}")
