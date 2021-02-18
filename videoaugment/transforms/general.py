@@ -1,8 +1,4 @@
-# TODO
-# video numpy array to tensor
-# list of PIL images to tensor and numpy
-# list of numpy to PIL
-# list of
+
 import PIL
 import PIL.Image
 import torch
@@ -123,6 +119,9 @@ class VideoToTensor:
         vid = torch.stack(video,dim=1)
         print(vid.shape)
         return vid
+
+
+
 class VideoTransform(object):
     def __init__(self, spatial_transforms, temporal_transforms):
         self.spatial_transforms = ComposeSpatialTransforms(spatial_transforms)

@@ -147,3 +147,12 @@ class TemporalElasticTransformation(object):
         values = [x / values[-1] for x in values]
         values = [int(round(((x + 1) / 2) * (frames_per_clip - 1), 0)) for x in values]
         return values
+
+
+class TemporalScale(object):
+
+    def __init__(self, num_of_frames):
+        self.num_of_frames = num_of_frames
+    def __call__(self, clip):
+        return_ind = [int(i) for i in np.linspace(1, len(clip), num=self.num_of_frames)]
+        return [clip[i - 1] for i in return_ind]
