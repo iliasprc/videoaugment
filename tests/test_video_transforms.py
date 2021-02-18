@@ -1,15 +1,15 @@
-from transforms.crop import RandomCrop, RandomResizedCrop, CenterCrop
-from transforms.flip import VerticalFlip, HorizontalFlip, RandomVerticalFlip, RandomHorizontalFlip
-from transforms.rotate import Rotation, RandomRotation
-from transforms.resize import Resize
-from transforms.geometric import GaussianBlur
-from transforms.general import ComposeSpatialTransforms, ComposeTemporalTransforms, VideoTransform, NumpyToTensor, \
+from videoaugment.transforms.crop import RandomCrop, RandomResizedCrop, CenterCrop
+from videoaugment.transforms.flip import VerticalFlip, HorizontalFlip, RandomVerticalFlip, RandomHorizontalFlip
+from videoaugment.transforms.rotate import Rotation, RandomRotation
+from videoaugment.transforms.resize import Resize
+from videoaugment.transforms.geometric import GaussianBlur
+from videoaugment.transforms.general import ComposeSpatialTransforms, ComposeTemporalTransforms, VideoTransform, NumpyToTensor, \
     PILToTensor, Normalize,RearrangeTensor,VideoToTensor
 
-from transforms.intensity import Hue, RandomHue, Brightness, RandomBrightness, Contrast, RandomContrast, Saturation, \
+from videoaugment.transforms.intensity import Hue, RandomHue, Brightness, RandomBrightness, Contrast, RandomContrast, Saturation, \
     RandomSaturation, RandomColorAugment, Rescale
 
-from transforms.temporal_transform import TemporalElasticTransformation, TemporalDownsample, \
+from videoaugment.transforms.temporal_transform import TemporalElasticTransformation, TemporalDownsample, \
     Upsample, \
     RandomTemporalDownsample, TemporalRandomCrop, TemporalCenterCrop
 

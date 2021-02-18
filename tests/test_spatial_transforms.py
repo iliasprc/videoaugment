@@ -1,15 +1,10 @@
-from transforms.crop import RandomCrop, RandomResizedCrop, CenterCrop
-from transforms.flip import VerticalFlip, HorizontalFlip
-from transforms.rotate import Rotation, RandomRotation
-from transforms.geometric import GaussianBlur
-from transforms.general import ComposeSpatialTransforms, ComposeTemporalTransforms, VideoTransform, NpToTensor
-
-from transforms.intensity import Hue, RandomHue, Brightness, RandomBrightness, Contrast, RandomContrast, Saturation, \
+from videoaugment.transforms.crop import RandomCrop, RandomResizedCrop, CenterCrop
+from videoaugment.transforms.flip import VerticalFlip, HorizontalFlip
+from videoaugment.transforms.geometric import GaussianBlur
+from videoaugment.transforms.general import ComposeSpatialTransforms, ComposeTemporalTransforms, VideoTransform
+from videoaugment.transforms.rotate import Rotation,RandomRotation
+from videoaugment.transforms.intensity import Hue, RandomHue, Brightness, RandomBrightness, Contrast, RandomContrast, Saturation, \
     RandomSaturation, RandomColorAugment
-
-from transforms.temporal_transform import TemporalElasticTransformation, TemporalDownsample, TemporalDownsample, \
-    Upsample, \
-    RandomTemporalDownsample, TemporalRandomCrop, TemporalCenterCrop
 
 import numpy as np
 from PIL import Image
@@ -43,48 +38,48 @@ def plot_img(img,window_name='Frame'):
     cv2.waitKey(1000)
     cv2.destroyWindow(window_name)
 
-#
-# plot_img(frame)
-#
-# t = RandomCrop(400, img_size=(width, height))
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-# t = RandomResizedCrop(400, scale=(0.8, 1.0), ratio=(3. / 4., 4. / 3.))
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-# t = CenterCrop(400)
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-# t = VerticalFlip()
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-# t = HorizontalFlip()
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-# t = Rotation(10)
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-#
-# t = RandomRotation(90)
-#
-# plot_img(t(frame),t.__class__.__name__)
-#
-# t = Hue(hue=0.1)
-# plot_img(t(frame),t.__class__.__name__)
+
+plot_img(frame)
+
+t = RandomCrop(400, img_size=(width, height))
+
+plot_img(t(frame),t.__class__.__name__)
+
+t = RandomResizedCrop(400, scale=(0.8, 1.0), ratio=(3. / 4., 4. / 3.))
+
+plot_img(t(frame),t.__class__.__name__)
+
+t = CenterCrop(400)
+
+plot_img(t(frame),t.__class__.__name__)
+
+t = VerticalFlip()
+
+plot_img(t(frame),t.__class__.__name__)
+
+t = HorizontalFlip()
+
+plot_img(t(frame),t.__class__.__name__)
+
+t = Rotation(10)
+
+plot_img(t(frame),t.__class__.__name__)
 
 
-# t = Brightness(brightness=1.5)
-# plot_img(t(frame),t.__class__.__name__)
-#
-#
-# t = Contrast(contrast=1.5)
-# plot_img(t(frame),t.__class__.__name__)
+t = RandomRotation(90)
+
+plot_img(t(frame),t.__class__.__name__)
+
+t = Hue(hue=0.1)
+plot_img(t(frame),t.__class__.__name__)
+
+
+t = Brightness(brightness=1.5)
+plot_img(t(frame),t.__class__.__name__)
+
+
+t = Contrast(contrast=1.5)
+plot_img(t(frame),t.__class__.__name__)
 
 
 t = RandomColorAugment(brightness=0.2,contrast=0.2,hue=0.2,saturation=0.2)
