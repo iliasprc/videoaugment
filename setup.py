@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(name='video-augment',
                  version='1.0',
                  description='Video Augmentation for PyTorch',
-                 url='https://github.com/iliasprc/video-augment',
+                 url='https://github.com/iliasprc/videoaugment',
                  author='Ilias Papastratis',
                  author_email='iliaspapastrat@gmail.com',
                  license='MIT',
