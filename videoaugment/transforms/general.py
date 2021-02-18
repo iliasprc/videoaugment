@@ -117,7 +117,7 @@ class VideoToTensor:
     def __call__(self, video):
 
         vid = torch.stack(video,dim=1)
-        print(vid.shape)
+
         return vid
 
 
