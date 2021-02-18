@@ -11,7 +11,7 @@ from videoaugment.transforms.intensity import Hue, RandomHue, Brightness, Random
 
 from videoaugment.transforms.temporal_transform import TemporalElasticTransformation, TemporalDownsample, \
     Upsample, \
-    RandomTemporalDownsample, TemporalRandomCrop, TemporalCenterCrop
+    RandomTemporalDownsample, TemporalRandomCrop, TemporalCenterCrop,TemporalScale
 
 from loader.utils import load_image, plot_video, plot_img, load_img_sequence
 import numpy as np
@@ -33,7 +33,7 @@ print(len(video))
 t = VideoTransform(
     spatial_transforms=[CenterCrop(400), RandomColorAugment(brightness=0.2, contrast=0.2, hue=0.2, saturation=0.2),
                         RandomRotation(10), RandomHorizontalFlip(0.5) ],
-    temporal_transforms=[RandomTemporalDownsample(0.2), TemporalElasticTransformation()])
+    temporal_transforms=[RandomTemporalDownsample(0.5), TemporalElasticTransformation()])
 v = t(video)
 print(len(v))
 plot_video(v, window_name="Transform1")
@@ -44,7 +44,7 @@ t = VideoTransform(
     spatial_transforms=[CenterCrop(450), Resize(256), RandomCrop(crop_size=224, img_size=256),
                         RandomColorAugment(brightness=0.2, contrast=0.2, hue=0.2, saturation=0.2),
                         RandomRotation(10), RandomHorizontalFlip(0.5)],
-    temporal_transforms=[RandomTemporalDownsample(0.7), TemporalElasticTransformation()])
+    temporal_transforms=[RandomTemporalDownsample(0.5), TemporalElasticTransformation(),TemporalScale(64)])
 v = t(video)
 
 
@@ -57,6 +57,6 @@ t = VideoTransform(
                         RandomColorAugment(brightness=0.2, contrast=0.2, hue=0.2, saturation=0.2),
                         RandomRotation(10), RandomHorizontalFlip(0.5), Rescale(1./255.0), PILToTensor(),RearrangeTensor(),
                         Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))],
-    temporal_transforms=[RandomTemporalDownsample(0.7), TemporalElasticTransformation(),VideoToTensor()])
+    temporal_transforms=[RandomTemporalDownsample(0.5), TemporalElasticTransformation(),TemporalScale(64),VideoToTensor()])
 v = t(video)
 print(f"Video tensor shape {v.shape} type {v.dtype}")

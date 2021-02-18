@@ -27,7 +27,8 @@ class RandomTemporalDownsample(object):
     """
 
     def __init__(self, sampling_factor=1.0):
-        self.sampling_factor = sampling_factor
+        self.sampling_factor = random.uniform(sampling_factor,1)
+
 
     def __call__(self, video):
         return_ind = list(range(len(video)))
@@ -154,5 +155,6 @@ class TemporalScale(object):
     def __init__(self, num_of_frames):
         self.num_of_frames = num_of_frames
     def __call__(self, clip):
+
         return_ind = [int(i) for i in np.linspace(1, len(clip), num=self.num_of_frames)]
         return [clip[i - 1] for i in return_ind]
