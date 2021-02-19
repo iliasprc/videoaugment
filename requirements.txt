@@ -1,0 +1,7 @@
+torch>=1.1.0
+torchvision>=0.4.0
+scikit-image
+scipy
+opencv-python
+einops
+pillow

@@ -1,0 +1,17 @@
+dataset:
+  name: VideoDataset
+  modality: RGB
+  images_path: datasetpath/
+  classes: 10
+  normalize: True
+  padding : False
+  dim: [224,224]
+  train:
+    num_of_frames: 64
+    augmentation: True
+  validation:
+    num_of_frames: 64
+    augmentation: False
+  test:
+    num_of_frames: 64
+    augmentation: False

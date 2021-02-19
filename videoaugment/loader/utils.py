@@ -3,6 +3,19 @@ import cv2
 import PIL.Image as Image
 import glob
 import skvideo.io
+import re
+def natural_sort(l):
+    """
+    Sort files according to name
+    Args:
+        l (list): list of files
+
+    Returns: (list) sorted list
+
+    """
+    convert = lambda text: int(text) if text.isdigit() else text.lower()
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    return sorted(l, key=alphanum_key)
 def plot_img(img, window_name='Frame'):
     # if isinstance(img,(Image)):
     img = np.array(img).astype(np.uint8)
@@ -43,6 +56,9 @@ def load_video(path):
         video.append(frame)
     return video
 
+
+def video_paths(dataset_path):
+    return sorted(glob.glob(f"{dataset_path}/*"))
 
 
 
