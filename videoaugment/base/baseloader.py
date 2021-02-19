@@ -9,6 +9,7 @@ class BaseDataLoader(DataLoader):
     """
     Base class for all data loaders
     """
+
     def __init__(self, dataset, batch_size, shuffle, validation_split, num_workers, collate_fn=default_collate):
         self.validation_split = validation_split
         self.shuffle = shuffle
@@ -62,9 +63,6 @@ class BaseDataLoader(DataLoader):
             return DataLoader(sampler=self.valid_sampler, **self.init_kwargs)
 
 
-
-
-
 class BaseVideoDataset(Dataset):
     """
     Base class for Dataloader
@@ -74,17 +72,16 @@ class BaseVideoDataset(Dataset):
         mode ():
         classes ():
     """
-    def __init__(self, config, args, mode, classes):
 
+    def __init__(self, config, mode, classes):
         super(BaseVideoDataset, self).__init__()
 
-        self.args = args
         self.classes = classes
-        self.cwd_path = args.cwd
+
         self.mode = mode
         self.clips, self.labels = [], []
         self.config = config
-
+        self.dataset_path = config.dataset_path
 
     def __len__(self):
         """
@@ -104,7 +101,6 @@ class BaseVideoDataset(Dataset):
         raise NotImplementedError
 
     def feature_loader(self, index):
-
         raise NotImplementedError
 
     def video_loader(self, index):

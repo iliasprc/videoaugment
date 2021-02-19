@@ -6,16 +6,16 @@ from videoaugment.base.baseloader import BaseVideoDataset
 
 class VideoDataset(BaseVideoDataset):
 
-    def __init__(self, config, args, mode, classes):
+    def __init__(self, config, mode, classes):
         """
 
         Args:
             config ():
-            args ():
+
             mode ():
             classes ():
         """
-        super().__init__(config, args, mode, classes)
+        super().__init__(config,  mode, classes)
 
         self.do_augmentation = (mode == 'train')
         self.videos = list()
