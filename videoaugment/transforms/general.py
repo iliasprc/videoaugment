@@ -121,6 +121,15 @@ class VideoToTensor:
         return vid
 
 
+class VideoToNumpy:
+
+
+    def __call__(self, video):
+
+        vid = np.stack(video,axis=0)
+
+        return vid
+
 
 class VideoTransform(object):
     def __init__(self, spatial_transforms, temporal_transforms):

@@ -54,6 +54,9 @@ Differently from `torchvision` that applies different augmentation to each image
   </p>
 </p>
 
+  <a href="https://github.com/iliasprc/videoaugment">
+    <img src="sample.gif" >
+  </a>
 
 
 <!-- TABLE OF CONTENTS -->
