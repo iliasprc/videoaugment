@@ -33,7 +33,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/iliasprc/videoaugment">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="logo.jpg" alt="Logo">
   </a>
 
   <h3 align="center">videoaugment</h3>
