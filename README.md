@@ -52,11 +52,12 @@ Differently from `torchvision` that applies different augmentation to each image
     ·
     <a href="https://github.com/iliasprc/videoaugment/issues">Request Feature</a>
   </p>
-</p>
 
+<p align="center">
   <a href="https://github.com/iliasprc/videoaugment">
     <img src="sample.gif" >
   </a>
+</p>
 
 
 <!-- TABLE OF CONTENTS -->
